@@ -1,28 +1,27 @@
 from discord.ext import commands
 
 
-class Greetings(commands.Cog, name='Greetings module'):
+class Ffxiv(commands.Cog, name="FFXIV"):
+    """All things Final Fantasy XIV Online free trial up to level 60, including the award winning
+    Heavensward expansion!..."""
 
-    def __init__(self, bot):
+    def __init__(self, bot: commands.Bot):
         self.bot = bot
-        print("WeebBot.cogs.greetings.cog.py has been loaded!")
-
+        print("WeebBot.cogs.ffxiv.cog.py has been loaded!")
 
     @commands.command()
-    async def adhoc_play(self, ctx: commands.Context):
-        await ctx.send(f'O hai you go zai masu! {ctx.author.name}')
+    async def whoami(self, ctx: commands.Context):
+        pass
 
-    @commands.Cog.listener()
-    async def on_member_join(self, member):
-        channel = member.guild.system_channel
-        if channel is not None:
-            await channel.send(f'{member.mention} has joined Kowaii Weebo Trash!')
+    @commands.command()
+    async def iam(self, ctx: commands.Context):
+        pass
 
-    @commands.Cog.listener()
-    async def on_command_error(self, ctx, error):
-        if isinstance(error, commands.CommandNotFound):
-            await ctx.send('You have entered an invalid command D:')
+    @commands.command()
+    async def bestmmo(self, ctx: commands.Context):
+        await ctx.send("Final Fantasy XIV has a free trial up to level 60 which includes the award winning "
+                       "Heavensward expansion; therefore making it the superior MMORPG to date.")
 
 
-def setup(bot):
-    bot.add_cog(Greetings(bot))
+def setup(bot: commands.Bot):
+    bot.add_cog(Ffxiv(bot))
