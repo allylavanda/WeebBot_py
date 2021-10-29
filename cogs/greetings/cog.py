@@ -9,7 +9,7 @@ class Greetings(commands.Cog, name='Greetings module'):
 
 
     @commands.command()
-    async def adhoc_play(self, ctx: commands.Context):
+    async def heya(self, ctx: commands.Context):
         await ctx.send(f'O hai you go zai masu! {ctx.author.name}')
 
     @commands.Cog.listener()
@@ -26,3 +26,4 @@ class Greetings(commands.Cog, name='Greetings module'):
 
 def setup(bot):
     bot.add_cog(Greetings(bot))
+    
