@@ -1,18 +1,28 @@
 from discord.ext import commands
 
 
-class Ffxiv(commands.Cog, name="FFXIV"):
-    """All things Final Fantasy XIV Online free trial up to level 60, including the award winning
-    Heavensward expansion!..."""
+class Greetings(commands.Cog, name='Greetings module'):
 
-    def __init__(self, bot: commands.Bot):
+    def __init__(self, bot):
         self.bot = bot
-        print("WeebBot.cogs.ffxiv.cog.py has been loaded!")
+        print("WeebBot.cogs.greetings.cog.py has been loaded!")
+
 
     @commands.command()
-    async def whoami(self, ctx: commands.Context):
-        pass
+    async def adhoc_play(self, ctx: commands.Context):
+        await ctx.send(f'O hai you go zai masu! {ctx.author.name}')
+
+    @commands.Cog.listener()
+    async def on_member_join(self, member):
+        channel = member.guild.system_channel
+        if channel is not None:
+            await channel.send(f'{member.mention} has joined Kowaii Weebo Trash!')
+
+    @commands.Cog.listener()
+    async def on_command_error(self, ctx, error):
+        if isinstance(error, commands.CommandNotFound):
+            await ctx.send('You have entered an invalid command D:')
 
 
-def setup(bot: commands.Bot):
-    bot.add_cog(Ffxiv(bot))
+def setup(bot):
+    bot.add_cog(Greetings(bot))
