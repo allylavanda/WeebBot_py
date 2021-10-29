@@ -5,7 +5,7 @@ class Greetings(commands.Cog, name='Greetings module'):
 
     def __init__(self, bot):
         self.bot = bot
-        print("WeebBot.greetings.cog.py has been loaded!")
+        print("WeebBot.cogs.greetings.cog.py has been loaded!")
 
 
     @commands.command()

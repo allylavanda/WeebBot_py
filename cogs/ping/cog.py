@@ -6,7 +6,7 @@ class Ping(commands.Cog, name="Ping Cog"):
 
     def __init__(self, bot: commands.Bot):
         self.bot = bot
-        print("WeebBot.cogs.ping.cog.py has loaded!")
+        print("WeebBot.cogs.ping.cog.py has been loaded!")
 
     @commands.command()
     async def ping(self, ctx: commands.Context):
