@@ -1,2 +1,2 @@
 # WeebBot
-Discord bot for Kowaii Weebo Trash
+WeebBot for Kowaii Weebo Trash discord server built using python
